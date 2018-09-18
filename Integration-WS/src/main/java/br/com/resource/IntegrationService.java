@@ -342,9 +342,9 @@ public class IntegrationService {
 			
 			while(rs.next()) {
 				p.setId(rs.getInt("id"));
-				p.setSetor(rs.getString("nome"));
-				p.setCoordenador(rs.getString("idade"));
-				p.setGerente(rs.getString("sexo"));
+				p.setSetor(rs.getString("setor"));
+				p.setCoordenador(rs.getString("coordenador"));
+				p.setGerente(rs.getString("gerente"));
 
 				
 				dados = gson.toJson(p);
@@ -371,9 +371,9 @@ public class IntegrationService {
 			while(rs.next()) {
 				Setores p = new Setores();
 				p.setId(rs.getInt("id"));
-				p.setSetor(rs.getString("nome"));
-				p.setCoordenador(rs.getString("idade"));
-				p.setGerente(rs.getString("sexo"));
+				p.setSetor(rs.getString("setor"));
+				p.setCoordenador(rs.getString("coordenador"));
+				p.setGerente(rs.getString("gerente"));
 				
 				pessoaLista.add(p);
 			}
