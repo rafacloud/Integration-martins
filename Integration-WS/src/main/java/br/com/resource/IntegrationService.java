@@ -207,7 +207,7 @@ public class IntegrationService {
 		Funcionarios p = new Funcionarios();
 		try {
 			Connection con = ConectaDatabase.criarConexao();
-			String sql = "SELECT id, nome, idade, nacionalidade, cpf, rg, id_setor, id_cargo"
+			String sql = "SELECT id, nome, idade, nacionalidade, cpf, rg, id_setor, id_cargo "
 						+"FROM funcionarios "
 						+"WHERE id = '"+id+"'";
 			ResultSet rs = conexao.getDados(sql);
