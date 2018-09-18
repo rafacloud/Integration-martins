@@ -494,7 +494,7 @@ public class IntegrationService {
 
         try {
         	Connection con = ConectaDatabase.criarConexao();
-        	String sql = "DELETE FROM funcionario WHERE id = "+id+"";
+        	String sql = "DELETE FROM funcionarios WHERE id = "+id+"";
         	codigo_resposta = conexao.executeSQL(sql);
         	if(codigo_resposta > 0) {
         		System.out.println("Deletado com sucesso");
@@ -519,14 +519,16 @@ public class IntegrationService {
 
 			Funcionarios p = gson.fromJson(json_dados, Funcionarios.class);
 			Connection con = ConectaDatabase.criarConexao();
-			String sql = "UPDATE pessoa SET "
+			String sql = "UPDATE funcionarios SET "
 					+ "nome = '"+p.getNome()+"', "
-					+ "'" + p.getIdade() + "'," 
-					+ "'" + p.getNacionalidade() + "'," 
-					+ "'" + p.getCpf() + "'," 
-					+ "'" + p.getRg() + "'," 
-					+ "'" + p.getId_setor() + "',"
-					+ "'" + p.getId_cargo() + "')";
+					+ "idade = '"+p.getIdade()+"', "
+					+ "nacionalidade = '"+p.getNacionalidade()+"', "
+					+ "cpf = '"+p.getCpf()+"', "
+					+ "rg = '"+p.getRg()+"', "
+					+ "id_setor = '"+p.getId_setor()+"', "
+					+ "id_cargo = '"+p.getId_cargo()+"', "
+					+ "WHERE id = '"+p.getId()+"'";
+					
 
 			codigo_resposta = conexao.executeSQL(sql);
 
@@ -551,9 +553,10 @@ public class IntegrationService {
 
 			Cargos p = gson.fromJson(json_dados, Cargos.class);
 			Connection con = ConectaDatabase.criarConexao();
-			String sql = "UPDATE cargos SET "
-					+ p.getCargo() + "',"  
-					+ "'" + p.getSalario() + "')";
+			String sql = "UPDATE cargos SET "			
+			+ "cargo = '"+p.getCargo()+"', "
+			+ "salario = '"+p.getSalario()+"', "
+			+ "WHERE id = '"+p.getId()+"'";
 
 			codigo_resposta = conexao.executeSQL(sql);
 
@@ -579,9 +582,10 @@ public class IntegrationService {
 			Setores p = gson.fromJson(json_dados, Setores.class);
 			Connection con = ConectaDatabase.criarConexao();
 			String sql = "UPDATE setores SET "
-					+ p.getSetor() + "'," 
-					+ "'" + p.getCoordenador() + "'," 
-					+ "'" + p.getGerente() + "')";
+						+ "setor = '"+p.getSetor()+"', "
+						+ "coordenador = '"+p.getCoordenador()+"', "
+						+ "gerente = '"+p.getGerente()+"', "
+						+ "WHERE id = '"+p.getId()+"'";
 
 			codigo_resposta = conexao.executeSQL(sql);
 
