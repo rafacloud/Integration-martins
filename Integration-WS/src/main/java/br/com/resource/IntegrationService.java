@@ -276,7 +276,7 @@ public class IntegrationService {
 		Cargos p = new Cargos();
 		try {
 			Connection con = ConectaDatabase.criarConexao();
-			String sql = "SELECT id, cargo, salario"
+			String sql = "SELECT id, cargo, salario "
 						+"FROM cargos "
 						+"WHERE id = '"+id+"'";
 			ResultSet rs = conexao.getDados(sql);
@@ -335,7 +335,7 @@ public class IntegrationService {
 		Setores p = new Setores();
 		try {
 			Connection con = ConectaDatabase.criarConexao();
-			String sql = "SELECT id, nome, idade, sexo, nacionalidade, cpf, rg, altura "
+			String sql = "SELECT id, setor, coordenador, gerente "
 						+"FROM setores "
 						+"WHERE id = '"+id+"'";
 			ResultSet rs = conexao.getDados(sql);
@@ -365,7 +365,7 @@ public class IntegrationService {
 		
 		try {
 			Connection con = ConectaDatabase.criarConexao();
-			String sql = "SELECT * FROM pessoa ORDER BY id";
+			String sql = "SELECT * FROM setores ORDER BY id";
 			ResultSet rs = conexao.getDados(sql);
 			
 			while(rs.next()) {
@@ -551,7 +551,7 @@ public class IntegrationService {
 
 			Cargos p = gson.fromJson(json_dados, Cargos.class);
 			Connection con = ConectaDatabase.criarConexao();
-			String sql = "UPDATE pessoa SET "
+			String sql = "UPDATE cargos SET "
 					+ p.getCargo() + "',"  
 					+ "'" + p.getSalario() + "')";
 
@@ -578,7 +578,7 @@ public class IntegrationService {
 
 			Setores p = gson.fromJson(json_dados, Setores.class);
 			Connection con = ConectaDatabase.criarConexao();
-			String sql = "UPDATE pessoa SET "
+			String sql = "UPDATE setores SET "
 					+ p.getSetor() + "'," 
 					+ "'" + p.getCoordenador() + "'," 
 					+ "'" + p.getGerente() + "')";
