@@ -526,7 +526,7 @@ public class IntegrationService {
 					+ "cpf = '"+p.getCpf()+"', "
 					+ "rg = '"+p.getRg()+"', "
 					+ "id_setor = '"+p.getId_setor()+"', "
-					+ "id_cargo = '"+p.getId_cargo()+"', "
+					+ "id_cargo = '"+p.getId_cargo()+"' "
 					+ "WHERE id = '"+p.getId()+"'";
 					
 
@@ -555,7 +555,7 @@ public class IntegrationService {
 			Connection con = ConectaDatabase.criarConexao();
 			String sql = "UPDATE cargos SET "			
 			+ "cargo = '"+p.getCargo()+"', "
-			+ "salario = '"+p.getSalario()+"', "
+			+ "salario = '"+p.getSalario()+"' "
 			+ "WHERE id = '"+p.getId()+"'";
 
 			codigo_resposta = conexao.executeSQL(sql);
@@ -584,7 +584,7 @@ public class IntegrationService {
 			String sql = "UPDATE setores SET "
 						+ "setor = '"+p.getSetor()+"', "
 						+ "coordenador = '"+p.getCoordenador()+"', "
-						+ "gerente = '"+p.getGerente()+"', "
+						+ "gerente = '"+p.getGerente()+"' "
 						+ "WHERE id = '"+p.getId()+"'";
 
 			codigo_resposta = conexao.executeSQL(sql);
