@@ -510,7 +510,7 @@ public class IntegrationService {
     }
     
     @PUT
-    @Path("/atualizar_funcionario/{id}")
+    @Path("/atualizar_funcionario")
     @Produces("application/json")
     @Consumes("application/json")
     public String atualizaFuncionario(String json_dados) {
@@ -544,7 +544,7 @@ public class IntegrationService {
     }
 
     @PUT
-    @Path("/atualizar_cargo/{id}")
+    @Path("/atualizar_cargo")
     @Produces("application/json")
     @Consumes("application/json")
     public String atualizaCargo(String json_dados) {
@@ -572,7 +572,7 @@ public class IntegrationService {
     }
     
     @PUT
-    @Path("/atualizar_setor/{id}")
+    @Path("/atualizar_setor")
     @Produces("application/json")
     @Consumes("application/json")
     public String atualizaSetor(String json_dados) {
