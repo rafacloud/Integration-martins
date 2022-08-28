@@ -10,6 +10,8 @@ public class Pessoa {
 	private String cpf;
 	private String rg;
 	private float altura;
+	private int id_setor;
+	private int id_cargo;
 	
 	public int getId() {
 		return id;
@@ -59,4 +61,33 @@ public class Pessoa {
 	public void setAltura(float altura) {
 		this.altura = altura;
 	}
+
+    /**
+     * @return int return the id_setor
+     */
+    public int getId_setor() {
+        return id_setor;
+    }
+
+    /**
+     * @param id_setor the id_setor to set
+     */
+    public void setId_setor(int id_setor) {
+        this.id_setor = id_setor;
+    }
+
+    /**
+     * @return int return the id_cargo
+     */
+    public int getId_cargo() {
+        return id_cargo;
+    }
+
+    /**
+     * @param id_cargo the id_cargo to set
+     */
+    public void setId_cargo(int id_cargo) {
+        this.id_cargo = id_cargo;
+    }
+
 }
