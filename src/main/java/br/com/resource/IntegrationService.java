@@ -215,8 +215,6 @@ public class IntegrationService {
 	public String cadastrarFuncionarios(String json_dados) {
 
 		try {
-			if (json_dados == null || json_dados == "")
-				return null;
 
 			Funcionarios funcionarios = gson.fromJson(json_dados, Funcionarios.class);
 
@@ -236,26 +234,18 @@ public class IntegrationService {
 	@Path("/cadastrar_cargo")
 	@Produces("application/json")
 	@Consumes("application/json")
-	public String cadastrarCargo(String json_dados) {
+	public Cargos cadastrarCargo(String json_dados) {
 		try {
 
-			Cargos p = gson.fromJson(json_dados, Cargos.class);
+			Cargos cargo = gson.fromJson(json_dados, Cargos.class);
 			ConectaDatabase.criarConexao();
 
-			String sql = "INSERT INTO cargos (cargo, salario)"
-					+ "values('" + p.getCargo() + "',"
-					+ "'" + p.getSalario() + "')";
+			cargo = conexao.executeInsertCargo(cargo);
 
-			codigo_resposta = conexao.executeUpdateSQL(sql);
+			return cargo;
 
-			if (codigo_resposta > 0) {
-				System.out.println("Inserido com sucesso: " + gson.toJson(p));
-				return gson.toJson(p);
-			} else {
-				return "Ocorreu um erro ao cadastrar " + rs;
-			}
 		} catch (Exception e) {
-			return e.getMessage();
+			return null;
 		}
 	}
 
@@ -263,29 +253,19 @@ public class IntegrationService {
 	@Path("/cadastrar_setor")
 	@Produces("application/json")
 	@Consumes("application/json")
-	public String cadastrarSetor(String json_dados) {
+	public Setores cadastrarSetor(String json_dados) {
 		try {
 
-			Setores p = gson.fromJson(json_dados, Setores.class);
+			Setores setor = gson.fromJson(json_dados, Setores.class);
 
 			ConectaDatabase.criarConexao();
 
-			String sql = "INSERT INTO setores (setor, coordenador, gerente)"
-					+ "values('" + p.getSetor() + "',"
-					+ "'" + p.getCoordenador() + "',"
-					+ "'" + p.getGerente() + "')";
+			setor = conexao.executeInsertSetores(setor);
 
-			codigo_resposta = conexao.executeUpdateSQL(sql);
-
-			if (codigo_resposta > 0) {
-				System.out.println("Inserido com sucesso: " + gson.toJson(p));
-				return gson.toJson(p);
-			} else {
-				return "Ocorreu um erro ao cadastrar " + rs;
-			}
+			return setor;
 
 		} catch (Exception e) {
-			return e.getMessage();
+			return null;
 		}
 	}
 
