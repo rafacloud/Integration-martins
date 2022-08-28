@@ -1,0 +1,12 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "postgresql-42.5.0.jar"
+        ],
+        "exclude": [
+            "c:\\Users\\Rafael\\Downloads\\postgresql-9.4.1208.jre6.jar"
+        ]
+    },
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
