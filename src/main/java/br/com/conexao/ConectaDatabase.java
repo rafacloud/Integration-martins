@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import br.com.resource.Cargos;
 import br.com.resource.Funcionarios;
+import br.com.resource.Setores;
 
 public class ConectaDatabase {
 	/*
@@ -70,9 +72,9 @@ public class ConectaDatabase {
 			psm.executeUpdate();
 			ResultSet rs = psm.getGeneratedKeys();
 
-			if(rs.next()){
+			if (rs.next()) {
 				id = rs.getString(1);
-				System.out.println("Id: "+ id);
+				System.out.println("Id: " + id);
 			}
 
 			funcionario.setId(Integer.valueOf(id));
@@ -89,14 +91,83 @@ public class ConectaDatabase {
 	}
 
 	/**
+	 * @param método InsertSetores
+	 * @return int
+	 */
+	public Setores executeInsertSetores(Setores setor) {
+		try {
+			String id = "";
+			String sql = "INSERT INTO setores (setor, coordenador, gerente) values(?,?,?)";
+			PreparedStatement psm = conecta.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+			psm.setString(1, setor.getSetor());
+			psm.setString(2, setor.getCoordenador());
+			psm.setString(3, setor.getCoordenador());
+
+			psm.executeUpdate();
+			ResultSet rs = psm.getGeneratedKeys();
+
+			if (rs.next()) {
+				id = rs.getString(1);
+				System.out.println("Id: " + id);
+			}
+
+			setor.setId(Integer.valueOf(id));
+
+			conecta.close();
+			psm.close();
+
+			return setor;
+		} catch (Exception e) {
+			System.out.println("ERROR: " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
+	 * @param método InsertCargos
+	 * @return int
+	 */
+	public Cargos executeInsertCargo(Cargos cargos) {
+		try {
+			String id = "";
+			String sql = "INSERT INTO cargos (cargo, salario) values(?,?)";
+			PreparedStatement psm = conecta.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+			psm.setString(1, cargos.getCargo());
+			psm.setFloat(2, cargos.getSalario());
+
+			psm.executeUpdate();
+			ResultSet rs = psm.getGeneratedKeys();
+
+			if (rs.next()) {
+				id = rs.getString(1);
+				System.out.println("Id: " + id);
+			}
+
+			cargos.setId(Integer.valueOf(id));
+
+			conecta.close();
+			psm.close();
+
+			return cargos;
+		} catch (Exception e) {
+			System.out.println("ERROR: " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
 	 * @param método updateSQL
 	 * @return String
 	 */
 	public int executeUpdateSQL(String sql) {
 		try {
 
-			 Statement stmt = conecta.createStatement();
-			 int resp = stmt.executeUpdate(sql);
+			Statement stmt = conecta.createStatement();
+			int resp = stmt.executeUpdate(sql);
 
 			conecta.close();
 			stmt.close();
