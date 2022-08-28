@@ -1,7 +1,7 @@
 <html>
 <body>
 <h2>Bem vindo</h2>
-Para acessar os métodos, siga as instruções abaixo:<br>
+Para acessar os mï¿½todos, siga as instruï¿½ï¿½es abaixo:<br>
 Inclua na URL acima os seguintes endpoints:<br>
 
 GET todos os dados funcionarios<br>
@@ -11,25 +11,25 @@ GET um unico funcionario<br>
 https://itau-integration.herokuapp.com/rest/service/funcionario/{id}<br>
 
 GET todos os dados cargos<br>
-https://itau-integration.herokuapp.com/rest/service/cargos<br>
+https://sf-integration-dev.herokuapp.com/rest/service/cargos<br>
 
 GET um unico cargo<br>
-https://itau-integration.herokuapp.com/rest/service/cargo/{id}<br>
+https://sf-integration-dev.herokuapp.com/rest/service/cargo/{id}<br>
 
 GET todos os dados setores<br>
-https://itau-integration.herokuapp.com/rest/service/setores<br>
+https://sf-integration-dev.herokuapp.com/rest/service/setores<br>
 
 GET um unico setor<br>
-https://itau-integration.herokuapp.com/rest/service/setor/{id}<br>
+https://sf-integration-dev.herokuapp.com/rest/service/setor/{id}<br>
 
 POST cadastra um funcionario<br>
-https://itau-integration.herokuapp.com/rest/service/cadastrar_funcionario<br>
+https://sf-integration-dev.herokuapp.com/rest/service/cadastrar_funcionario<br>
 
 PUT atualiza um funcionario<br>
-https://itau-integration.herokuapp.com/rest/service/atualizar_funcionario<br>
+https://sf-integration-dev.herokuapp.com/rest/service/atualizar_funcionario<br>
 
 DELETE um funcionario<br>
-https://itau-integration.herokuapp.com/rest/service/funcionario/{id}<br>
+https://sf-integration-dev.herokuapp.com/rest/service/funcionario/{id}<br>
 
 EXEMPLO de json POST e PUT<br>
 {  
