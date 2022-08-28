@@ -1,14 +1,14 @@
 <html>
 <body>
 <h2>Bem vindo</h2>
-Para acessar os m�todos, siga as instru��es abaixo:<br>
+
 Inclua na URL acima os seguintes endpoints:<br>
 
 GET todos os dados funcionarios<br>
-https://itau-integration.herokuapp.com/rest/service/funcionarios<br>
+https://sf-integration-dev.herokuapp.com/rest/service/funcionarios<br>
 
 GET um unico funcionario<br>
-https://itau-integration.herokuapp.com/rest/service/funcionario/{id}<br>
+https://sf-integration-dev.herokuapp.com/rest/service/funcionario/{id}<br>
 
 GET todos os dados cargos<br>
 https://sf-integration-dev.herokuapp.com/rest/service/cargos<br>
